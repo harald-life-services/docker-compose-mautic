@@ -7,6 +7,10 @@ FROM mautic/mautic:${MAUTIC_VERSION} AS build
 # Install dependencies needed for Composer to run and rebuild assets:
 RUN apt-get update && apt-get install -y git curl npm && rm -rf /var/lib/apt/lists/*
 
+# Get SES plugin using git:
+RUN cd /var/www/html && \
+    git clone https://github.com/pm-pmaas/etailors_amazon_ses.git docroot/plugins/AmazonSesBundle
+
 # Install Composer globally:
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
