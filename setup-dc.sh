@@ -102,3 +102,8 @@ if docker compose exec -T mautic_web test -f /var/www/html/config/local.php && d
 fi
 
 echo "## Script execution completed"
+
+# Clear cache and reload/install plugin:
+RUN cd /var/www/html && \
+    php bin/console cache:clear && \
+    php bin/console mautic:plugins:reload
