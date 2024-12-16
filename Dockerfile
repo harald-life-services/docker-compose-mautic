@@ -8,7 +8,7 @@ FROM mautic/mautic:${MAUTIC_VERSION} AS build
 RUN apt-get update && apt-get install -y git curl npm && rm -rf /var/lib/apt/lists/*
 
 # Get SES plugin using git:
-RUN cd /var/www/html && \
+# RUN cd /var/www/html && \
     git clone https://github.com/pm-pmaas/etailors_amazon_ses.git docroot/plugins/AmazonSesBundle
 
 # Install Composer globally:
