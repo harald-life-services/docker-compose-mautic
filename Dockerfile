@@ -16,7 +16,7 @@ RUN cd /var/www/html && \
 
 # Install any Mautic theme or plugin using Composer:
 RUN cd /var/www/html && \
-    COMPOSER_ALLOW_SUPERUSER=1 COMPOSER_PROCESS_TIMEOUT=10000  vendor/bin/composer require etailors/mautic-amazon-ses:^1.0 --no-scripts --no-interaction
+    COMPOSER_ALLOW_SUPERUSER=1 COMPOSER_PROCESS_TIMEOUT=10000  vendor/bin/composer require pabloveintimilla/mautic-amazon-ses:^1.0 --no-scripts --no-interaction
 
 # Production stage:
 FROM mautic/mautic:${MAUTIC_VERSION}
